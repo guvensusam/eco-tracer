@@ -10,7 +10,7 @@ Bu proje, barkod tarama yoluyla ürünlerin çevresel etkilerini analiz eden ve 
 * **Akıllı Öneri Motoru:** Taranan ürünün puanına göre aynı kategorideki daha sürdürülebilir alternatifleri dinamik olarak listeler.
 * **Oyunlaştırma:** Kullanıcıların çevreci tercihlerini takip eden ve profil bazlı "Eco-Puan" kazandıran bir sistem sunar.
 
-## Gereksinimler
+## Teknolojik Gereksinimler
 
 * **Backend:** Java 17, Spring Boot 3.x, Spring Data JPA
 * **Veritabanı:** H2 Database (In-Memory)
