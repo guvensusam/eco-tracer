@@ -1,7 +1,7 @@
-Eco-Trace: Sürdürülebilirlik Analiz Sistemi
+##Eco-Trace: Sürdürülebilirlik Analiz Sistemi
 Bu proje, barkod tarama yoluyla ürünlerin çevresel etkilerini analiz eden ve daha yeşil alternatifler sunan Full-Stack bir backend uygulamasıdır.
 
-Temel Mühendislik Özellikleri
+##Temel Mühendislik Özellikleri
 Katmanlı Mimari: Proje; Controller, Service ve Repository katmanlarına ayrılarak, iş mantığı (business logic) ve veri erişimi birbirinden tamamen izole edilmiştir.
 
 REST API Entegrasyonu: Open Food Facts API ile entegre çalışarak, yerel veritabanında bulunmayan ürünlerin verilerini anlık olarak çeker ve işler.
@@ -12,7 +12,7 @@ Akıllı Öneri Motoru: Taranan ürünün puanına göre aynı kategorideki daha
 
 Oyunlaştırma: Kullanıcıların çevreci tercihlerini takip eden ve profil bazlı "Eco-Puan" kazandıran bir sistem sunar.
 
-Teknoloji Yığını
+##Gereksinimler
 Backend: Java 17, Spring Boot 3.x, Spring Data JPA
 
 Veritabanı: H2 Database (In-Memory)
