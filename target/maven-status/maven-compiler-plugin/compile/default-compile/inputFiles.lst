@@ -1,0 +1,17 @@
+C:\projeler\eco_tracer\src\main\java\com\example\demo\controller\ProductController.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\DemoApplication.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\model\Brand.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\model\Category.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\model\EnvironmentalMetric.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\model\Product.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\model\ScanHistory.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\model\User.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\repository\BrandRepository.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\repository\CategoryRepository.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\repository\EnvironmentalMetricRepository.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\repository\ProductRepository.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\repository\ScanHistoryRepository.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\repository\UserRepository.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\service\GamificationService.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\service\OpenFoodFactsService.java
+C:\projeler\eco_tracer\src\main\java\com\example\demo\service\ProductService.java

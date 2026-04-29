@@ -1,0 +1,17 @@
+com\example\demo\DemoApplication.class
+com\example\demo\service\ProductService.class
+com\example\demo\repository\BrandRepository.class
+com\example\demo\model\Brand.class
+com\example\demo\repository\ScanHistoryRepository.class
+com\example\demo\model\EnvironmentalMetric.class
+com\example\demo\model\Category.class
+com\example\demo\service\GamificationService.class
+com\example\demo\model\ScanHistory.class
+com\example\demo\model\User.class
+com\example\demo\controller\ProductController.class
+com\example\demo\repository\UserRepository.class
+com\example\demo\repository\EnvironmentalMetricRepository.class
+com\example\demo\repository\CategoryRepository.class
+com\example\demo\repository\ProductRepository.class
+com\example\demo\model\Product.class
+com\example\demo\service\OpenFoodFactsService.class

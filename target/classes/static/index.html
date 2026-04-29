@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Trace Tarayıcı</title>
+    <style>
+        /* Minimalist ve Modern Tasarım Ayarları */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        input {
+            width: 80%;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #27ae60;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #219a52;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .result-card {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #f1f8f5;
+            display: none; /* Başlangıçta gizli */
+            text-align: left;
+        }
+        .result-item {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 18px;
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Eco-Trace</h1>
+    <input type="text" id="barcodeInput" placeholder="Barkod numarasını girin..." />
+    <br>
+    <button onclick="scanProduct()">Ürünü Tara</button>
+
+    <div id="errorMsg" class="error"></div>
+
+    <div id="resultCard" class="result-card">
+        <div class="result-item">Ürün: <span id="resName" class="highlight"></span></div>
+        <div class="result-item">Marka: <span id="resBrand"></span></div>
+        <div class="result-item">Eco-Score: <span id="resScore" class="highlight"></span> / 100</div>
+        <div class="result-item">Kazanılan Puan: <span id="resPoints" class="highlight" style="color: #f39c12;"></span> 🌟</div>
+    </div>
+</div>
+
+<script>
+    // Arka plandaki Java Spring Boot API'miz ile konuşan JavaScript motoru
+    function scanProduct() {
+        const barcode = document.getElementById('barcodeInput').value;
+        const resultCard = document.getElementById('resultCard');
+        const errorMsg = document.getElementById('errorMsg');
+        const userId = 1; // Şimdilik varsayılan kullanıcımız
+
+        // Ekranı temizle
+        resultCard.style.display = 'none';
+        errorMsg.innerText = 'Taranıyor, lütfen bekleyin...';
+        errorMsg.style.color = '#7f8c8d';
+
+        if(!barcode) {
+            errorMsg.innerText = 'Lütfen bir barkod girin!';
+            errorMsg.style.color = '#e74c3c';
+            return;
+        }
+
+        // Kendi yazdığımız API'ye istek atıyoruz!
+        fetch(`http://localhost:8080/api/scan/${userId}/${barcode}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ürün bulunamadı veya sunucu hatası.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Veriler geldi! Ekrandaki yerlerine yerleştir
+                document.getElementById('resName').innerText = data.product.name;
+                document.getElementById('resBrand').innerText = data.product.brand.brandName;
+                document.getElementById('resScore').innerText = data.product.ecoScore;
+                document.getElementById('resPoints').innerText = `+${data.earnedPoints}`;
+
+                errorMsg.innerText = '';
+                resultCard.style.display = 'block'; // Kartı görünür yap
+            })
+            .catch(error => {
+                errorMsg.innerText = 'Ürün global sistemde bulunamadı.';
+                errorMsg.style.color = '#e74c3c';
+                resultCard.style.display = 'none';
+            });
+    }
+</script>
+</body>
+</html>
